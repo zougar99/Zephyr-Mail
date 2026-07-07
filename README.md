@@ -14,17 +14,17 @@ Extension Firefox pour emails jetables, alias privés, anti-spam et protection d
 
 ## Installation
 
-1. Téléchargez la dernière version depuis [Releases](https://github.com/werlist99/zephyr-mail/releases)
+1. Téléchargez la dernière version depuis [Releases](https://github.com/zougar99/Zephyr-Mail/releases)
 2. Ouvrez `about:debugging` dans Firefox
 3. Cliquez sur "Ce Firefox" → "Extension temporaire"
 4. Sélectionnez le fichier `manifest.json`
 
-Ou installez depuis les [sorties](https://github.com/werlist99/zephyr-mail/releases) (fichier `.xpi`).
+Ou installez depuis les [sorties](https://github.com/zougar99/Zephyr-Mail/releases) (fichier `.xpi`).
 
 ## Développement
 
 ```bash
-git clone https://github.com/werlist99/zephyr-mail.git
+git clone https://github.com/zougar99/Zephyr-Mail.git
 cd zephyr-mail
 ```
 

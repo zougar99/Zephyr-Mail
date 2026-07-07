@@ -3,7 +3,7 @@
   "name": "Zephyr Mail",
   "version": "1.0.0",
   "description": "Emails jetables, alias, confidentialité, anti-spam — temp mail, masking, tracking blocker.",
-  "homepage_url": "https://t.me/werlist99",
+  "homepage_url": "https://github.com/zougar99/Zephyr-Mail",
   "permissions": [
     "activeTab",
     "storage",
