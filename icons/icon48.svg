@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><defs><linearGradient id="z1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#4FC3F7"/><stop offset="100%" stop-color="#0288D1"/></linearGradient></defs><path fill="url(#z1)" d="M4 8v32l20-12 20 12V8H4zm3 3h34v24L24 25 7 35V11z"/><circle fill="#4FC3F7" cx="36" cy="20" r="8" opacity=".85"/><circle fill="#E1F5FE" cx="36" cy="20" r="4"/><path fill="#fff" d="M7 12L24 24 41 12"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="bg48" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0D47A1"/>
+      <stop offset="1" stop-color="#01579B"/>
+    </linearGradient>
+    <linearGradient id="env48" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#4FC3F7"/>
+      <stop offset="1" stop-color="#0288D1"/>
+    </linearGradient>
+    <linearGradient id="z48" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset="1" stop-color="#B3E5FC"/>
+    </linearGradient>
+    <filter id="s48" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1" flood-color="#000" flood-opacity=".25"/>
+    </filter>
+  </defs>
+  <rect width="48" height="48" rx="8" fill="url(#bg48)"/>
+  <g filter="url(#s48)">
+    <path d="M6 10v28l18-12 18 12V10H6zm4 4h28v20L24 24 10 34V14z" fill="url(#env48)"/>
+    <circle cx="36" cy="20" r="7" fill="#4FC3F7" opacity=".85"/>
+    <circle cx="36" cy="20" r="3.5" fill="#E1F5FE"/>
+    <path d="M28 12l8 12h-6l-2 8 8-12h-6l2-8z" fill="url(#z48)" opacity=".9"/>
+  </g>
+</svg>
