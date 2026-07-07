@@ -202,9 +202,10 @@ $('#gen-custom-btn')?.addEventListener('click', async () => {
   }
   const domain = $('#gen-domain').value;
   const address = `${login}@${domain}`;
-  showResult(address);
+  await runtimeSend({ action: 'mail:addAddress', address });
   state.addresses.unshift(address);
   state.currentAddress = address;
+  showResult(address);
   renderAddressChips();
   renderActiveList();
   loadMessages();
@@ -283,13 +284,27 @@ $('#gen-alias-btn')?.addEventListener('click', async () => {
       <svg viewBox="0 0 16 16" width="14" height="14"><path fill="currentColor" d="M4 1v3H1v11h11v-3h3V1H4zm2 2h7v7h-2V5H6V3zM3 6h7v7H3V6z"/></svg>
       Copier
     </button>
+    <button class="btn-small use-alias-btn">
+      <svg viewBox="0 0 16 16" width="14" height="14"><path fill="currentColor" d="M1 3v12h12V3H1zm2 2h8v8H3V5zm11-4v12h-1V4H3V3h11v-1z"/></svg>
+      Utiliser
+    </button>
   `;
-  el.querySelector('.copy-alias-btn')?.addEventListener('click', async () => {
+  const copyHandler = async () => {
     try {
       await navigator.clipboard.writeText(alias);
       const btn = el.querySelector('.copy-alias-btn');
       btn.textContent = '✓ Copié';
       setTimeout(() => { btn.innerHTML = '<svg viewBox="0 0 16 16" width="14" height="14"><path fill="currentColor" d="M4 1v3H1v11h11v-3h3V1H4zm2 2h7v7h-2V5H6V3zM3 6h7v7H3V6z"/></svg> Copier'; }, 1500);
+    } catch {}
+  };
+  el.querySelector('.copy-alias-btn')?.addEventListener('click', copyHandler);
+  el.querySelector('.use-alias-btn')?.addEventListener('click', async () => {
+    try {
+      const tabs = await browserAPI.tabs.query({ active: true, currentWindow: true });
+      if (tabs && tabs[0]) {
+        await browserAPI.tabs.sendMessage(tabs[0].id, { action: 'mail:fillField', address: alias });
+        window.close();
+      }
     } catch {}
   });
 });

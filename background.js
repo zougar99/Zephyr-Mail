@@ -106,6 +106,15 @@ browserAPI.runtime.onMessage.addListener((msg, sender, sendResponse) => {
     case 'mail:readMessage':
       readMessage(msg.address, msg.id).then(data => sendResponse({ message: data }));
       return true;
+    case 'mail:addAddress':
+      if (msg.address && !activeAddresses.includes(msg.address)) {
+        activeAddresses.unshift(msg.address);
+        if (activeAddresses.length > 10) activeAddresses.pop();
+        browserAPI.storage.local.set({ activeAddresses });
+        startPolling(msg.address);
+      }
+      sendResponse({ ok: true });
+      break;
     case 'mail:delete':
       deleteAddress(msg.address).then(() => sendResponse({ ok: true }));
       return true;
